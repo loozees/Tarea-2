@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Casa de Pandas</title>
+    <link rel="icon" href="/images/favicon.ico">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--Profesora, iba acá el CSS en Bootstrap? Porque probé ponerlo en el archivo de SCSS que creó automáticamente Stackblitz y se me rompía la página-->
+    <style>
+      body {
+        font: 400 15px/1.8 Merriweather, sans-serif;
+        color: #171e26;
+      }
+      h2, h3, h4 {
+        margin: 10px 0 30px 0;     
+        font-size: 40px;
+        color: #111;
+        text-shadow: 2px 2px 5px #f8dbc4;
+        font-weight: bold;
+      }
+      .container {
+        padding: 80px 120px;
+      }
+      .carousel-inner img {
+        width: 100%;
+        margin: auto;
+      }
+      @media (max-width: 600px) {
+        .carousel-caption {
+          display: none;
+        }
+      }
+      .bg-1 {
+        background: #de987c;
+        color: #bdbdbd;
+      }
+      .bg-1 h3 {color: #7e433e;}
+      .bg-1 p {font-style: italic; color: #171e26;}
+      }
+      .thumbnail {
+        padding: 0 0 15px 0;
+        border: none;
+        border-radius: 0;
+      }
+      .thumbnail p {
+        margin-top: 15px;
+        color: #555;
+      }
+      .btn {
+        padding: 10px 20px;
+        background-color: #7e433e;
+        color: #f1f1f1;
+        border-radius: 50;
+        transition: .2s;
+      }
+      .btn:hover, .btn:focus {
+        background-color: #fff;
+        color: #000;
+      }
+      .icons {
+        margin: 10px 0 30px 0;
+        letter-spacing: 10px;      
+      }
+      .nav-tabs li a {
+        color: #171e26;
+      }
+      .navbar {
+        font-family: Poppins, sans-serif;
+        margin-bottom: 0;
+        background-color: #7e433e;
+        border: 0;
+        font-size: 11px;
+        letter-spacing: 4px;
+        opacity: 0.9;
+      }
+      .navbar li a, .navbar .navbar-brand { 
+        color: #d5d5d5;
+      }
+      .navbar-nav li a:hover {
+        color: #fff;
+      }
+      .navbar-nav li.active a {
+        color: #fff;
+        background-color: #29292c;
+      }
+      .navbar-default .navbar-toggle {
+        border-color: transparent;
+      }
+      footer {
+        background-color: #ffffff;
+        color: #f5f5f5;
+        padding: 32px;
+      }
+      .form-control {
+        border-radius: 0;
+      }
+      textarea {
+        resize: none;
+      }
+      .glyphicon {
+        color: #171E26;
+      }
+      .p {
+        color: #171e26;
+      }
+    </style>
+  </head>
+  <body id="Home" data-spy="scroll" data-target=".navbar" data-offset="50">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#Navbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a class="navbar-brand" href="#Home">Casa de Pandas</a>
+        </div>
+        <!--No me gusta mucho el color que usé para el texto de la Navbar, pero era la única manera que quedara decente el contraste cuando iba pasando por las secciones-->
+        <div class="collapse navbar-collapse" id="Navbar">
+        <!--Le hice menú hamburguesa así que se esconde en pantallas chiquitas-->
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#Home">INICIO</a></li>
+            <li><a href="#Pandas">NOSOTROS</a></li>
+            <li><a href="#Galeria">NUESTROS PANDAS</a></li>
+            <li><a href="#Contacto">CONTACTO</a></li>
+            <!--El navbar de Contacto cuando hago click me lleva a la mitad de la palabra Contacto, como que se come una parte de la sección, ¿sabe por qué puede ser?-->
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div id="Carousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#Carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#Carousel" data-slide-to="1"></li>
+          <li data-target="#Carousel" data-slide-to="2"></li>
+        </ol>
+        <!--Creé muchas fotos falsas con Stable Diffusion para poner en la página, pero después de crearlas decidí usar Pexels mejor, todas las fotos utilizadas en esta página son "free of use"-->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img src="https://images.pexels.com/photos/2265247/pexels-photo-2265247.jpeg" alt="Panda durmiendo en rama" width="100%">
+          </div>
+          <div class="item">
+            <img src="https://images.pexels.com/photos/851940/pexels-photo-851940.jpeg" alt="Pandas dándose beso" width="100%">   
+          </div>
+          <div class="item">
+            <img src="https://images.pexels.com/photos/5472743/pexels-photo-5472743.jpeg" alt="Panda sentado" width="100%">     
+          </div>
+        </div>
+        <a class="left carousel-control" href="#Carousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Anterior</span>
+        </a>
+        <a class="right carousel-control" href="#Carousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Siguiente</span>
+        </a>
+    </div>
+    <div id="Pandas" class="container text-center">
+      <h3>Casa de Pandas</h3>
+      <p>Nuestra misión en Casa de Pandas Santuario del Panda Rojo es proteger y conservar esta especie en peligro de extinción. Proporcionamos un entorno seguro y natural para que prosperen estos bellos y singulares animales. Nos comprometemos a educar al público sobre la importancia de preservar su hábitat y el delicado equilibrio de los ecosistemas. Mediante la investigación y la conservación, nos esforzamos por garantizar que las generaciones futuras puedan disfrutar de la magia y la maravilla de los pandas rojos en libertad. Ayúdenos a asegurar un futuro mejor para estas preciosas criaturas uniéndose a nuestra importante misión.
+      </p>
+      <br>
+    </div>
+    <div id="Galeria" class="bg-1">
+      <div class="container">
+        <h2>Nuestros Pandas</h2>
+        <p>Hacé click en las imágenes para agrandarlas.</p>
+        <!--La galería fue la parte más complicada de esta tarea, siempre la foto de Nina me rompía todo el set-->
+        <hr class="mt-2 mb-5">
+          <div class="row text-center text-lg-start">
+            <div class="col-lg-3 col-md-4 col-6">
+              <a href="https://images.pexels.com/photos/2569229/pexels-photo-2569229.jpeg" class="d-block mb-4 h-100" target="_blank">
+                <img class="img-fluid img-thumbnail" src="https://images.pexels.com/photos/2569229/pexels-photo-2569229.jpeg" alt="Toto">
+                <div class="caption">
+                  <p>Toto</p>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6">
+              <a href="https://images.pexels.com/photos/146102/pexels-photo-146102.jpeg" class="d-block mb-4 h-100" target="_blank">
+                <img class="img-fluid img-thumbnail" src="https://images.pexels.com/photos/146102/pexels-photo-146102.jpeg" alt="Marita">
+                <div class="caption">
+                  <p>Marita</p>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6">
+              <a href="https://images.pexels.com/photos/147941/pexels-photo-147941.jpeg" class="d-block mb-4 h-100" target="_blank">
+                <img class="img-fluid img-thumbnail" src="https://images.pexels.com/photos/147941/pexels-photo-147941.jpeg" alt="Pipo">
+                <div class="caption">
+                  <p>Pipo</p>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6">
+              <a href="https://images.pexels.com/photos/13206785/pexels-photo-13206785.jpeg" class="d-block mb-4 h-100" target="_blank">
+                <img class="img-fluid img-thumbnail" src="https://images.pexels.com/photos/13206785/pexels-photo-13206785.jpeg" alt="Nina">
+                <div class="caption">
+                  <p>Nina</p>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6">
+              <a href="https://images.pexels.com/photos/146234/pexels-photo-146234.jpeg" class="d-block mb-4 h-100" target="_blank">
+                <img class="img-fluid img-thumbnail" src="https://images.pexels.com/photos/146234/pexels-photo-146234.jpeg" alt="Luca">
+                <div class="caption">
+                  <p>Luca</p>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6">
+              <a href="https://images.pexels.com/photos/145970/pexels-photo-145970.jpeg" class="d-block mb-4 h-100" target="_blank">
+                <img class="img-fluid img-thumbnail" src="https://images.pexels.com/photos/145970/pexels-photo-145970.jpeg" alt="Lola">
+                <div class="caption">
+                  <p>Lola</p>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6">
+            <a href="https://images.pexels.com/photos/2780463/pexels-photo-2780463.jpeg" class="d-block mb-4 h-100" target="_blank">
+              <img class="img-fluid img-thumbnail" src="https://images.pexels.com/photos/2780463/pexels-photo-2780463.jpeg" alt="Sara">
+              <div class="caption">
+                <p>Sara</p>
+              </div>
+            </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-6">
+            <a href="https://images.pexels.com/photos/14050363/pexels-photo-14050363.jpeg" class="d-block mb-4 h-100" target="_blank">
+              <img class="img-fluid img-thumbnail" src="https://images.pexels.com/photos/14050363/pexels-photo-14050363.jpeg" alt="Memo">
+              <div class="caption">
+                <p>Memo</p>
+              </div>
+            </a>
+            </div>
+          </div>
+    <br>
+    <br>
+    <br>
+    <div id="Contacto" class="bg-1">
+      <p class="text-center"><em> </em></p>
+      <h3 class="text-center">Contacto</h3>
+      <div class="row">
+        <div class="col-md-4">
+          <p><span class="glyphicon glyphicon-map-marker" style="color:#ffffff"></span>Buenos Aires, Argentina</p>
+          <p><span class="glyphicon glyphicon-phone" style="color:#ffffff"></span>Phone: 011 1515151515</p>
+          <p><span class="glyphicon glyphicon-envelope" style="color:#ffffff"></span>Email: test@test.com</p>
+        </div>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-sm-6 form-group">
+              <!--El form no funciona, todavía no estoy segura cómo hacer un form que envíe cosas en serio-->
+              <input class="form-control" id="name" name="name" placeholder="Nombre" type="text" required>
+            </div>
+            <div class="col-sm-6 form-group">
+              <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+            </div>
+          </div>
+          <textarea class="form-control" id="comments" name="comments" placeholder="Dejá tu comentario" rows="5"></textarea>
+          <br>
+          <div class="row">
+            <div class="col-md-12 form-group">
+              <button class="btn pull-right" type="submit">Enviar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <footer class="text-center">
+      <a class="up-arrow" href="#Home" data-toggle="tooltip" title="ARRIBA">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+      </a>
+      <!--No configuré los links para que llevaran a nada porque Casa de Pandas no existe, pero quería poner algo en el footer-->
+      <div class="icons">
+        <i class="fa fa-facebook" style="font-size:36px;color:#171E26"></i>
+        <i class="fa fa-instagram" style="font-size:36px;color:#171E26"></i>
+        <i class="fa fa-twitter" style="font-size:36px;color:#171E26"></i>
+      </div>
+    </footer>
+    <!--Esto lo saqué de W3Schools, no sé qué hace exactamente porque Java no es mi fuerte, espero entenderlo mejor en la clase del Martes... Creo que tiene que ver con el scroll, porque si lo saco se ve feo cuando uso el chevron en el footer y cuando se aprietan las secciones en el Navbar-->
+    <script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip(); 
+      $(".navbar a, footer a[href='#Home']").on('click', function(event) {
+        if (this.hash !== "") {
+          event.preventDefault();
+          var hash = this.hash;
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 900, function(){
+            window.location.hash = hash;
+          });
+        }
+      });
+    })
+    </script>
+  </body>
+</html>
